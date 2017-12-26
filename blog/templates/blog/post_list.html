@@ -4,9 +4,17 @@
     {% for post in posts %}
         <div class="post">
             <div class="date">
-                {{ post.published_date }}
+                {{ post.published_date.year }}年
+                {{ post.published_date.month }}月
+                {{ post.published_date.day }}日
             </div>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div>
+                <h1>
+                    <a href="{% url 'post_detail' pk=post.pk %}">
+                        <p class="title">{{ post.title }}</p>
+                    </a>
+                </h1>
+            </div>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
